@@ -9,7 +9,7 @@ The deployment of [Tub](https://github.com/mkline13/tub) on robot. Tub runs from
 | `schemas/` | JSON Schemas for document `data`, one file per schema ID |
 | `setup.sh` | Creates the scopes and registers the schemas with the running container |
 
-Scope: `personal`. Schemas: `task.v1` (Task) and `journal-entry.v1` (Journal entry).
+Scope: `personal`. Schemas: `task.v1` (Task), `journal-entry.v1` (Journal entry) and `bookmark.v1` (Bookmark).
 
 ## Deploy
 
