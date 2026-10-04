@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Task",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "notes": { "type": "string", "maxLength": 20000 },
+    "done": { "type": "boolean" },
+    "due": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "completedAt": { "type": "integer", "minimum": 0 },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "maxLength": 100 },
+      "uniqueItems": true
+    }
+  },
+  "required": ["title", "done"],
+  "additionalProperties": false
+}

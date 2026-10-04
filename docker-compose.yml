@@ -1,0 +1,23 @@
+# Tub on robot. Reachable only through robot-caddy at https://<proxy>/tub/.
+#
+# The project name "tub" keeps the data volume named tub_tub-data, the same
+# volume the Tub repo's deploy/docker-compose.yml uses, so switching between
+# the two keeps the same database.
+name: tub
+
+services:
+  tub:
+    image: ghcr.io/mkline13/tub:main
+    container_name: tub
+    networks: [caddy]
+    # no `ports:` -- only reachable through the proxy
+    volumes:
+      - tub-data:/data
+    restart: unless-stopped
+
+volumes:
+  tub-data:
+
+networks:
+  caddy:
+    external: true

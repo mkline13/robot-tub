@@ -1,0 +1,8 @@
+# tub: https://{$TS_DOMAIN}/tub/
+handle_path /tub/* {
+	reverse_proxy tub:8787 {
+		# pass the live-sync event stream through without buffering
+		flush_interval -1
+	}
+}
+redir /tub /tub/
